@@ -1,0 +1,86 @@
+Decisões de projeto:
+
+Uma unica entidade Curso, contendo campo <Tipo_Curso> que pode assumir os valores Mestrado/Doutorado
+
+Entidade Candidato se vincula com informações do transcorrer do candidato pelo processo seletivo [pré inscrição, inscrição, envio de documentação, pendências, execução de provas, nota do candidato nas provas teórica e prática]
+
+Carta de intenção == "Breve texto sobre suas expectativas ou experiencias anteriores"
+
+"Os secretarios tambem recebem as CARTAS DE RECOMENDAÇÃO e acompanham a quantidade de cartas de recomentação por candidato" => O candidato pode enviar mais de uma carta de recomentação
+
+Edital.DocumentoEdital contem informações sobre o edital [numero de vagas, prazos, documentos necessários...]
+
+=====
+Universidade 1<possui>n programas de pos graduacao
+
+programas de pos graduacao 1<associado>n unidade de ensino
+programas de pos graduacao 1<associado>n universidade
+
+programas de pos graduacao 1<contem>n linhas de pesquisa
+programas de pos graduacao 1<oferece>n cursos
+
+curso:
+>> ou mestrado
+>> ou doutorado
+
+processo seletivo 1<contem>1 comissao de selecao
+>> prazos
+>> listas de resultados parciais
+>> listas de candidatos aprovados
+>> listas de espera
+>> semestral ou anual
+>> inscricao de candidatos
+>> Varia conforme tipo de curso
+
+processo seletivo 1<gera>1 edital
+>> Numero de vagas
+>> ??? Requisitos de entrada ???
+>> Documentação necessaria
+>> Etapas
+>> Prazos
+>> Tem dedicacao exclusiva? Quanto?
+
+candidato n<inscrito>n processo seletivo [toda a burocracia da inscricao cai aqui]
+>> nome
+>> numero de inscricao
+>> status_inscricao [em triagem/reenviar/
+>> status_processo [aprovado/reprovado]
+>> pontuacao
+
+candidato 1<possui>1 inscricao
+>> numero de inscricao
+>> rg
+>> cpf
+>> foto
+>> endereco
+>> diploma
+>> ata de defesa
+>> ano da graduacao
+>> titulo da monografia
+>> linha de pesquisa
+>> orientador
+>> instituicao de graduacao
+>> requer bolsa de estudos?
+>> trabalhará durante estudos?
+>> curriculo [lattes, vitae]
+>> projeto de pesquisa [descricao da pesquisa durante curso]
+>> historico escolar
+>> comprovante de proeficiencia em lingua estrangeira [opcional]
+>> carta de recomendacao [opcional]
+>> carta de intencao
+>> carta de aceitacao do orientador
+>> carta de liberacao da empresa
+>> numero de inscricao - exame nacional de conhecimento especifico [opcional]
+>> pontuacao - exame nacional de conhecimento especifico [opcional]
+>> comprovante de pagamento de GRU
+>> outros documentos [opcional] [video de performance, partitura musical, publicacoes, pontuacao - aluno especial, teste de proeficiencia em portugues(aluno estrangeiro), copia do protocolo de entrega dos documentos na embaixada(aluno estrangeiro), diploma validado no Brasil(aluno estrangeiro)
+
+inscricao 1<contem>n carta de recomendacao
+>> recomendante: [professor/orientador/chefe]
+>> ficha
+
+ficha da carta de recomendacao:
+>> ??
+
+comissao de selecao 1<contem>n avaliadores
+comissao de selecao 1<contem>1 presidente
