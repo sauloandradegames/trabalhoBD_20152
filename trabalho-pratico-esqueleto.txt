@@ -1,6 +1,11 @@
 Decisões de projeto:
 
+Programas de pós-graduação associados a outras instituições de ensino superior = n:n
+
 Uma unica entidade Curso, contendo campo <Tipo_Curso> que pode assumir os valores Mestrado/Doutorado
+
+
+Inscrição antes excessivamente grande, com mais de 15 campos. Optou-se por separar estes campos em categorias, cada categoria uma tabela própria a ser referenciada pela tabela Inscrição
 
 Entidade Candidato se vincula com informações do transcorrer do candidato pelo processo seletivo [pré inscrição, inscrição, envio de documentação, pendências, execução de provas, nota do candidato nas provas teórica e prática]
 
@@ -11,10 +16,8 @@ Carta de intenção == "Breve texto sobre suas expectativas ou experiencias anteri
 Edital.DocumentoEdital contem informações sobre o edital [numero de vagas, prazos, documentos necessários...]
 
 =====
-Universidade 1<possui>n programas de pos graduacao
-
+Universidade n<possui>n programas de pos graduacao
 programas de pos graduacao 1<associado>n unidade de ensino
-programas de pos graduacao 1<associado>n universidade
 
 programas de pos graduacao 1<contem>n linhas de pesquisa
 programas de pos graduacao 1<oferece>n cursos
@@ -49,31 +52,56 @@ candidato n<inscrito>n processo seletivo [toda a burocracia da inscricao cai aqu
 
 candidato 1<possui>1 inscricao
 >> numero de inscricao
->> rg
->> cpf
->> foto
->> endereco
->> diploma
->> ata de defesa
->> ano da graduacao
->> titulo da monografia
->> linha de pesquisa
->> orientador
->> instituicao de graduacao
 >> requer bolsa de estudos?
 >> trabalhará durante estudos?
->> curriculo [lattes, vitae]
->> projeto de pesquisa [descricao da pesquisa durante curso]
->> historico escolar
->> comprovante de proeficiencia em lingua estrangeira [opcional]
->> carta de recomendacao [opcional]
->> carta de intencao
->> carta de aceitacao do orientador
->> carta de liberacao da empresa
->> numero de inscricao - exame nacional de conhecimento especifico [opcional]
->> pontuacao - exame nacional de conhecimento especifico [opcional]
 >> comprovante de pagamento de GRU
->> outros documentos [opcional] [video de performance, partitura musical, publicacoes, pontuacao - aluno especial, teste de proeficiencia em portugues(aluno estrangeiro), copia do protocolo de entrega dos documentos na embaixada(aluno estrangeiro), diploma validado no Brasil(aluno estrangeiro)
+- Contato
+	>> Telefone 1
+	>> Telefone 2
+	>> Email
+- Endereco
+	>> logradouro
+	>> numero
+	>> complemento
+	>> cidade
+	>> UF
+	>> País
+	>> CEP
+- Documentação pessoal
+	>> rg
+	>> cpf
+	>> foto
+- Documentação acadêmica
+	>> diploma
+	>> titulo da monografia
+	>> ata de defesa
+	>> ano da graduacao
+	>> instituicao de graduacao
+	>> curriculo [lattes, vitae]
+	>> historico escolar
+- Teste de proeficiência
+	>> comprovante de proeficiencia em lingua estrangeira [opcional]
+- Exame Nacional
+	>> numero de inscricao - exame nacional de conhecimento 		especifico [opcional]
+	>> pontuacao - exame nacional de conhecimento especifico 			[opcional]
+- Cartas 1:n
+	>> carta de recomendacao [opcional]
+	>> carta de intencao
+	>> carta de aceitacao do orientador
+	>> carta de liberacao da empresa
+- Pesquisa
+	>> projeto de pesquisa [descricao da pesquisa durante curso]
+	>> linha de pesquisa
+	>> orientador
+- Outros documentos [opcional]
+	>> video de performance, 
+	>> partitura musical, 
+	>> publicacoes, 
+	>> pontuacao: aluno especial,
+- Documentação para estrangeiros
+	>> teste de proeficiencia em portugues(aluno estrangeiro), 
+	>> copia do protocolo de entrega dos documentos na embaixada		(aluno estrangeiro), 
+	>> diploma validado no Brasil(aluno estrangeiro)
 
 inscricao 1<contem>n carta de recomendacao
 >> recomendante: [professor/orientador/chefe]
