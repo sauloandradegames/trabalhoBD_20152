@@ -4,7 +4,6 @@ Programas de pós-graduação associados a outras instituições de ensino superior =
 
 Uma unica entidade Curso, contendo campo <Tipo_Curso> que pode assumir os valores Mestrado/Doutorado
 
-
 Inscrição antes excessivamente grande, com mais de 15 campos. Optou-se por separar estes campos em categorias, cada categoria uma tabela própria a ser referenciada pela tabela Inscrição
 
 Entidade Candidato se vincula com informações do transcorrer do candidato pelo processo seletivo [pré inscrição, inscrição, envio de documentação, pendências, execução de provas, nota do candidato nas provas teórica e prática]
@@ -14,6 +13,15 @@ Carta de intenção == "Breve texto sobre suas expectativas ou experiencias anteri
 "Os secretarios tambem recebem as CARTAS DE RECOMENDAÇÃO e acompanham a quantidade de cartas de recomentação por candidato" => O candidato pode enviar mais de uma carta de recomentação
 
 Edital.DocumentoEdital contem informações sobre o edital [numero de vagas, prazos, documentos necessários...]
+
+Todas as tabelas foram separadas em módulos, de forma a facilitar a leitura e interpretação dos diagramas.
+
+No projeto do Mysql Workbench, foram criados os seguintes diagramas:
+>> Visão geral: Contem todas as tabelas em seus respectivos módulos, dando uma visão por alto de como será a arquitetura do sistema. As tabelas são minimizadas, de forma a mostrar apenas os seus nomes, sem exibir os campos de cada tabela. Cada tabela será detalhada nos diagramas individuais de cada módulo
+>> Camada - Universidade: Contem apenas as tabelas do módulo Universidade e sua estrutura interna
+>> Camada - Processo Seletivo: Contem apenas as tabelas do módulo Processo Seletivo e sua estrutura interna.
+>> Camada - Inscrição dos Candidatos: Contem apenas as tabelas do módulo Inscrição dos candidatos e sua estrutura interna
+Essa nova estruturação do projeto visa facilitar o trabalho dos outros componentes da equipe que trabalharão na parte de normalização do modelo.
 
 =====
 Universidade n<possui>n programas de pos graduacao
@@ -82,8 +90,8 @@ candidato 1<possui>1 inscricao
 - Teste de proeficiência
 	>> comprovante de proeficiencia em lingua estrangeira [opcional]
 - Exame Nacional
-	>> numero de inscricao - exame nacional de conhecimento 		especifico [opcional]
-	>> pontuacao - exame nacional de conhecimento especifico 			[opcional]
+	>> numero de inscricao - exame nacional de conhecimento	especifico [opcional]
+	>> pontuacao - exame nacional de conhecimento especifico [opcional]
 - Cartas 1:n
 	>> carta de recomendacao [opcional]
 	>> carta de intencao
@@ -99,8 +107,8 @@ candidato 1<possui>1 inscricao
 	>> publicacoes, 
 	>> pontuacao: aluno especial,
 - Documentação para estrangeiros
-	>> teste de proeficiencia em portugues(aluno estrangeiro), 
-	>> copia do protocolo de entrega dos documentos na embaixada		(aluno estrangeiro), 
+	>> teste de proeficiencia em portugues (aluno estrangeiro), 
+	>> copia do protocolo de entrega dos documentos na embaixada (aluno estrangeiro), 
 	>> diploma validado no Brasil(aluno estrangeiro)
 
 inscricao 1<contem>n carta de recomendacao
