@@ -120,3 +120,54 @@ ficha da carta de recomendacao:
 
 comissao de selecao 1<contem>n avaliadores
 comissao de selecao 1<contem>1 presidente
+
+=====================================NORMALIZAÇÃO DAS TABELAS=====================================
+
+CAMADA: Inscrição dos Candidatos =================================================================
+
+- Tabela: Inscricao
+	>> 1FN: OK
+	>> 2FN: Os outros atributos não dependem do campo Cartas_idCartas
+	   (Mudança: o campo Cartas_idCartas deixaria de ser parte da chave primária)
+	>> 3FN: OK
+- Tabela: DocumentacaoAcademica
+	>> 1FN: OK
+	>> 2FN: OK
+	>> 3FN: OK
+- Tabela: Endereco
+	>> 1FN: OK
+	>> 2FN: OK
+	>> 3FN: OK
+- Tabela: DocumentacaoAvulsa
+	>> 1FN: OK
+	>> 2FN: OK
+	>> 3FN: OK
+- Tabela: Carta (Estrutura modificada para evitar excesso de complexidade)
+	>> 1FN: OK
+	>> 2FN: O campo tipoCarta não depende do campo Inscricao_idInscricao na chave primária
+	(Mudança: o campo Inscricao_idInscricao não tem necessidade de ser parte da chave primária)
+	>> 3FN: OK
+- Tabela: DocumentacaoPessoal
+	>> 1FN: OK
+	>> 2FN: OK
+	>> 3FN: OK
+- Tabela: DocumentacaoEstrangeiro
+	>> 1FN: OK
+	>> 2FN: OK
+	>> 3FN: OK
+- Tabela: Pesquisa
+	>> 1FN: OK
+	>> 2FN: OK
+	>> 3FN: OK
+- Tabela: Contato
+	>> 1FN: OK (os campos Telefone1 e Telefone2 são distintos e limitados)
+	>> 2FN: OK
+	>> 3FN: OK
+- Tabela: ExameNacionalConhecimentoEspecifico
+	>> 1FN: OK
+	>> 2FN: OK
+	>> 3FN: OK
+- TesteProeficiencia
+	>> 1FN: OK
+	>> 2FN: OK
+	>> 3FN: OK
